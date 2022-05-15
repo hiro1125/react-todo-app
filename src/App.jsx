@@ -4,11 +4,11 @@ import { InputTodo } from './components/InputTodo';
 import { IncompleteTodo } from "./components/IncompleteTodo";
 import {CompleteTodo} from "./components/CompleteTodo";
 
-
 // 追加機能
 const App = () =>{
   const [todoText,setTodoText] = useState('');
-  const [todoEdit, setTodoEdit] = useState();
+  const [todoEdit, setTodoEdit] = useState('');
+  const [id, setId] = useState(0);
   const [incompleteTodo, setIncompleteTodo] = useState([]);
   const [completeTodo, setCompleteTodo] = useState([]);
 
@@ -17,7 +17,9 @@ const App = () =>{
   const onClickAdd = () => {
     if (todoText !== "" && todoText.trim(0)) {
       // ...→配列の順番を設定
-      const newTodo = [...incompleteTodo, todoText];
+      setId(id + 1 );
+      const check = false;
+      const newTodo = [...incompleteTodo, { todoText, id, check } ];
       setIncompleteTodo(newTodo);
       setTodoText('');
     } else {
@@ -53,15 +55,9 @@ const App = () =>{
   }
 
   // 編集機能
-const onChangeTodoEdit = (e) => setTodoEdit(e.target.defaultValue);
-const onClickEdit = (index) => {
-  if(todoEdit === '') {
+  const onChangeTodoEdit = (event) => {
+    setTodoEdit(event.todoText);
   };
-  const newTodo = [...incompleteTodo, todoEdit];
-  newTodo.splice(index, 1);
-  setIncompleteTodo(newTodo);
-  setTodoEdit('');
-};
 
   return(
     <>
@@ -78,7 +74,7 @@ const onClickEdit = (index) => {
       onClickDelete={onClickDelete}
       todoEdit={todoEdit}
       onChange={onChangeTodoEdit}
-      onClickEdit={onClickEdit} />
+    />
     <CompleteTodo
       Todo={completeTodo}
       onClickBack={onClickBack} />
