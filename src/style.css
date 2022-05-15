@@ -1,3 +1,11 @@
+header {
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 body {
   font-family: sans-serif;
 }
@@ -10,16 +18,33 @@ input {
 }
 
 button {
-  border-radius: 16px;
-  border: none;
-  padding: 4px 16px;
-}
-
-button:hover {
-  background-color: #ff7fff;
-  color: #fff;
-  cursor: pointer;
-}
+  margin-left: 10px;
+  padding: 5px 16px;
+  border-radius: 50px;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all .5s ease;
+ }
+ 
+ button:hover {
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+ }
+ 
+ button:active {
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+ }
 
 li {
   margin-right: 8px;
@@ -27,7 +52,7 @@ li {
 
 .input-area {
   background-color: #c1ffff;
-  width: 400px;
+  width: 100vw;
   height: 30px;
   border-radius: 8px;
   padding: 8px;
@@ -36,7 +61,7 @@ li {
 
 .incomplete-area {
   background-color: #c6ffe2;
-  width: 400px;
+  width: 100vw;
   min-height: 200px;
   padding: 8px;
   margin: 8px;
@@ -45,7 +70,7 @@ li {
 
 .complete-area {
   background-color: #ffffe0;
-  width: 400px;
+  width: 100vw;
   min-height: 200px;
   padding: 8px;
   margin: 8px;
@@ -63,4 +88,10 @@ li {
   display: flex;
   align-items: center;
   padding-bottom: 4px;
+}
+
+.edit-area {
+    display: flex;
+    align-items: center;
+    padding-bottom: 4px;
 }
