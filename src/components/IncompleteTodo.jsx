@@ -15,6 +15,7 @@ export const IncompleteTodo = ({Todo, onClickComplete, onClickDelete, onChange})
    Todo.map((todo) => {
      if (todo.id === id) {
        todo.check = true;
+       todo.time = new Date().toLocaleString();
        setRefresh(refresh ? false : true);
      }
    });
@@ -23,6 +24,7 @@ export const IncompleteTodo = ({Todo, onClickComplete, onClickDelete, onChange})
  const onClickEdit = (id, input) => {
    Todo.map((todo) => {
      if (todo.id === id) {
+      todo.time = new Date().toLocaleString();
        if (input === "") {
          alert("テキストを入力してください");
        } else {
@@ -45,6 +47,7 @@ export const IncompleteTodo = ({Todo, onClickComplete, onClickDelete, onChange})
         {!todo.check ? (
           <>
         <p>{todo.todoText}</p>
+        <p className="day-time">{todo.time}</p>
           <button onClick={() => onClickComplete(index)}>完了</button>
           <button onClick={() => onClickDelete(index)}>削除</button>
           <button onClick={() => Editable(todo.id)}>編集</button>

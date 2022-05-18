@@ -9,6 +9,7 @@ export const CompleteTodo = ({Todo, onClickBack}) => {
           return(
         <li key= {todo.id} className="list-row">
           <p>{todo.todoText}</p>
+        <p className="day-time">{todo.time}</p>
             <button onClick={() => onClickBack(index)}>戻す</button>
         </li>
           );

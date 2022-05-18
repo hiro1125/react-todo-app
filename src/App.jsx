@@ -19,7 +19,8 @@ const App = () =>{
       // ...→配列の順番を設定
       setId(id + 1 );
       const check = false;
-      const newTodo = [...incompleteTodo, { todoText, id, check } ];
+      const time = new Date().toLocaleString();
+      const newTodo = [...incompleteTodo,{ time, todoText, id, check} ];
       setIncompleteTodo(newTodo);
       setTodoText('');
     } else {
@@ -59,6 +60,8 @@ const App = () =>{
     setTodoEdit(event.todoText);
   };
 
+
+  
   return(
     <>
     <InputTodo
